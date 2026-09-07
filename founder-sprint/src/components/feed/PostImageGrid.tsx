@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export type PostImageDisplaySize = "small" | "medium" | "large";
 
@@ -49,37 +50,19 @@ export function PostImageGrid({
 
   useEffect(() => {
     if (activeImageIndex === null) return;
-
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setActiveImageIndex(null);
-        return;
-      }
-
+      if (event.key === "Escape") { setActiveImageIndex(null); return; }
       if (!hasMultipleImages) return;
-
       if (event.key === "ArrowLeft") {
-        setActiveImageIndex((current) => {
-          if (current === null) return current;
-          return current === 0 ? images.length - 1 : current - 1;
-        });
+        setActiveImageIndex((c) => c === null ? c : c === 0 ? images.length - 1 : c - 1);
       }
-
       if (event.key === "ArrowRight") {
-        setActiveImageIndex((current) => {
-          if (current === null) return current;
-          return current === images.length - 1 ? 0 : current + 1;
-        });
+        setActiveImageIndex((c) => c === null ? c : c === images.length - 1 ? 0 : c + 1);
       }
     };
-
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
+    return () => { document.removeEventListener("keydown", handleKeyDown); document.body.style.overflow = ""; };
   }, [activeImageIndex, hasMultipleImages, images.length]);
 
   if (images.length === 0) return null;
@@ -89,13 +72,12 @@ export function PostImageGrid({
   const isRail = images.length >= 3;
   const normalizedDisplaySize: PostImageDisplaySize =
     displaySize === "small" || displaySize === "medium" || displaySize === "large"
-      ? displaySize
-      : "medium";
+      ? displaySize : "medium";
   const sizeStyles = IMAGE_DISPLAY_SIZE_STYLES[normalizedDisplaySize];
 
   return (
     <div
-      aria-label={`${images.length} post image${images.length === 1 ? "" : "s"}`}
+      aria-label={"Post images (" + images.length + ")"}
       style={{
         display: isRail ? "flex" : "grid",
         gridTemplateColumns: isPair ? "repeat(2, minmax(0, 1fr))" : "1fr",
@@ -114,15 +96,10 @@ export function PostImageGrid({
           key={image.id || image.imageUrl}
           role="button"
           tabIndex={0}
-          onClick={(event) => {
-            event.stopPropagation();
-            setActiveImageIndex(index);
-          }}
+          onClick={(event) => { event.stopPropagation(); setActiveImageIndex(index); }}
           onKeyDown={(event) => {
             if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              event.stopPropagation();
-              setActiveImageIndex(index);
+              event.preventDefault(); event.stopPropagation(); setActiveImageIndex(index);
             }
           }}
           style={{
@@ -137,21 +114,33 @@ export function PostImageGrid({
             width: isSingle ? "fit-content" : isRail ? sizeStyles.railWidth : undefined,
             flex: isRail ? "0 0 auto" : undefined,
             scrollSnapAlign: isRail ? "start" : undefined,
+            position: "relative",
           }}
         >
-          <img
-            src={image.imageUrl}
-            alt={`Post image ${index + 1}`}
-            style={{
-              display: "block",
-              width: isSingle ? "auto" : "100%",
-              height: isSingle ? "auto" : "100%",
-              maxWidth: isSingle ? sizeStyles.singleMaxWidth : undefined,
-              maxHeight: isSingle ? sizeStyles.singleMaxHeight : undefined,
-              objectFit: isSingle ? "contain" : "cover",
-              objectPosition: "center",
-            }}
-          />
+          {isSingle ? (
+            <img
+              src={image.imageUrl}
+              alt={"Post image " + (index + 1)}
+              loading="lazy"
+              decoding="async"
+              style={{
+                display: "block", width: "auto", height: "auto",
+                maxWidth: sizeStyles.singleMaxWidth,
+                maxHeight: sizeStyles.singleMaxHeight,
+                objectFit: "contain", objectPosition: "center",
+              }}
+            />
+          ) : (
+            <Image
+              src={image.imageUrl}
+              alt={"Post image " + (index + 1)}
+              fill
+              sizes={isRail ? "220px" : isPair ? "50vw" : "100vw"}
+              loading="lazy"
+              quality={75}
+              style={{ objectFit: "cover", objectPosition: "center" }}
+            />
+          )}
         </div>
       ))}
 
@@ -159,137 +148,48 @@ export function PostImageGrid({
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`Post image ${activeImageIndex + 1} of ${images.length}`}
-          onClick={(event) => {
-            event.stopPropagation();
-            setActiveImageIndex(null);
-          }}
+          aria-label={"Image " + (activeImageIndex + 1) + " of " + images.length}
+          onClick={(e) => { e.stopPropagation(); setActiveImageIndex(null); }}
           style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 1000,
+            position: "fixed", inset: 0, zIndex: 1000,
             backgroundColor: "rgba(18, 17, 15, 0.88)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "24px",
-            cursor: "zoom-out",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "24px", cursor: "zoom-out",
           }}
         >
-          <button
-            type="button"
-            aria-label="Close image preview"
-            onClick={(event) => {
-              event.stopPropagation();
-              setActiveImageIndex(null);
-            }}
-            style={{
-              position: "absolute",
-              top: "18px",
-              right: "18px",
-              width: "38px",
-              height: "38px",
-              borderRadius: "50%",
-              border: "1px solid rgba(255, 255, 255, 0.22)",
-              backgroundColor: "rgba(255, 255, 255, 0.12)",
-              color: "white",
-              fontSize: "24px",
-              lineHeight: 1,
-              cursor: "pointer",
-            }}
-          >
-            ×
+          <button type="button" aria-label="Close" onClick={(e) => { e.stopPropagation(); setActiveImageIndex(null); }}
+            style={{ position: "absolute", top: "18px", right: "18px", width: "38px", height: "38px",
+              borderRadius: "50%", border: "1px solid rgba(255,255,255,0.22)",
+              backgroundColor: "rgba(255,255,255,0.12)", color: "white", fontSize: "24px", lineHeight: 1, cursor: "pointer" }}>
+            &#215;
           </button>
-
           {hasMultipleImages && (
-            <button
-              type="button"
-              aria-label="Previous image"
-              onClick={(event) => {
-                event.stopPropagation();
-                setActiveImageIndex((current) => {
-                  if (current === null) return current;
-                  return current === 0 ? images.length - 1 : current - 1;
-                });
-              }}
-              style={{
-                position: "absolute",
-                left: "18px",
-                width: "42px",
-                height: "42px",
-                borderRadius: "50%",
-                border: "1px solid rgba(255, 255, 255, 0.22)",
-                backgroundColor: "rgba(255, 255, 255, 0.12)",
-                color: "white",
-                fontSize: "28px",
-                lineHeight: 1,
-                cursor: "pointer",
-              }}
-            >
-              ‹
+            <button type="button" aria-label="Previous" onClick={(e) => {
+              e.stopPropagation(); setActiveImageIndex((c) => c === null ? c : c === 0 ? images.length - 1 : c - 1);
+            }} style={{ position: "absolute", left: "18px", width: "42px", height: "42px",
+              borderRadius: "50%", border: "1px solid rgba(255,255,255,0.22)",
+              backgroundColor: "rgba(255,255,255,0.12)", color: "white", fontSize: "28px", lineHeight: 1, cursor: "pointer" }}>
+              &#8249;
             </button>
           )}
-
-          <img
-            src={activeImage.imageUrl}
-            alt={`Post image ${activeImageIndex + 1} expanded`}
-            onClick={(event) => event.stopPropagation()}
-            style={{
-              maxWidth: "min(100%, 1120px)",
-              maxHeight: "90vh",
-              width: "auto",
-              height: "auto",
-              objectFit: "contain",
-              borderRadius: "12px",
-              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.35)",
-              cursor: "default",
-            }}
+          <img src={activeImage.imageUrl} alt={"Expanded image " + (activeImageIndex + 1)}
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: "min(100%, 1120px)", maxHeight: "90vh", width: "auto", height: "auto",
+              objectFit: "contain", borderRadius: "12px", boxShadow: "0 20px 60px rgba(0,0,0,0.35)", cursor: "default" }}
           />
-
           {hasMultipleImages && (
-            <button
-              type="button"
-              aria-label="Next image"
-              onClick={(event) => {
-                event.stopPropagation();
-                setActiveImageIndex((current) => {
-                  if (current === null) return current;
-                  return current === images.length - 1 ? 0 : current + 1;
-                });
-              }}
-              style={{
-                position: "absolute",
-                right: "18px",
-                width: "42px",
-                height: "42px",
-                borderRadius: "50%",
-                border: "1px solid rgba(255, 255, 255, 0.22)",
-                backgroundColor: "rgba(255, 255, 255, 0.12)",
-                color: "white",
-                fontSize: "28px",
-                lineHeight: 1,
-                cursor: "pointer",
-              }}
-            >
-              ›
+            <button type="button" aria-label="Next" onClick={(e) => {
+              e.stopPropagation(); setActiveImageIndex((c) => c === null ? c : c === images.length - 1 ? 0 : c + 1);
+            }} style={{ position: "absolute", right: "18px", width: "42px", height: "42px",
+              borderRadius: "50%", border: "1px solid rgba(255,255,255,0.22)",
+              backgroundColor: "rgba(255,255,255,0.12)", color: "white", fontSize: "28px", lineHeight: 1, cursor: "pointer" }}>
+              &#8250;
             </button>
           )}
-
           {hasMultipleImages && (
-            <div
-              style={{
-                position: "absolute",
-                bottom: "18px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                padding: "5px 10px",
-                borderRadius: "999px",
-                backgroundColor: "rgba(255, 255, 255, 0.14)",
-                color: "white",
-                fontSize: "12px",
-                fontWeight: 600,
-              }}
-            >
+            <div style={{ position: "absolute", bottom: "18px", left: "50%", transform: "translateX(-50%)",
+              padding: "5px 10px", borderRadius: "999px", backgroundColor: "rgba(255,255,255,0.14)",
+              color: "white", fontSize: "12px", fontWeight: 600 }}>
               {activeImageIndex + 1} / {images.length}
             </div>
           )}
