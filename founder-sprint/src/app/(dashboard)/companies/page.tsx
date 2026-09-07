@@ -373,7 +373,6 @@ export default async function CompaniesPage({
                       href={company.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
                       style={{
                         fontSize: "13px",
                         color: "#666666",
