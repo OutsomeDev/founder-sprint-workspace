@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-
+import Image from 'next/image';
 
 interface AvatarProps {
   src?: string;
@@ -41,8 +41,8 @@ export const Avatar: React.FC<AvatarProps> = ({
 
   const containerStyle: React.CSSProperties = {
     position: 'relative',
-    width: `${pixelSize}px`,
-    height: `${pixelSize}px`,
+    width: pixelSize + 'px',
+    height: pixelSize + 'px',
     cursor: onClick ? 'pointer' : 'default',
     opacity: onClick && isHovered ? 0.9 : 1,
     transition: 'opacity 0.2s ease-in-out',
@@ -50,23 +50,18 @@ export const Avatar: React.FC<AvatarProps> = ({
     verticalAlign: 'middle',
   };
 
-  const commonStyle: React.CSSProperties = {
+  const fallbackStyle: React.CSSProperties = {
     width: '100%',
     height: '100%',
     borderRadius: '50%',
     border: '1px solid rgba(0,0,0,0.1)',
     boxSizing: 'border-box',
-    objectFit: 'cover',
-  };
-
-  const fallbackStyle: React.CSSProperties = {
-    ...commonStyle,
     backgroundColor: '#e0e0e0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: '#666',
-    fontSize: `${pixelSize * 0.45}px`,
+    fontSize: pixelSize * 0.45 + 'px',
     fontWeight: 'bold',
     userSelect: 'none',
     fontFamily: 'var(--bf-font-family, sans-serif)',
@@ -110,10 +105,18 @@ export const Avatar: React.FC<AvatarProps> = ({
       }}
     >
       {src && !imgError ? (
-        <img
+        <Image
           src={src}
           alt={alt}
-          style={commonStyle}
+          width={pixelSize}
+          height={pixelSize}
+          loading="lazy"
+          quality={60}
+          style={{
+            borderRadius: '50%',
+            border: '1px solid rgba(0,0,0,0.1)',
+            objectFit: 'cover',
+          }}
           onError={() => setImgError(true)}
         />
       ) : (
