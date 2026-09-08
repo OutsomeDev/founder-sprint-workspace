@@ -59,38 +59,41 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "6px",
-          backgroundColor: "transparent",
-          border: "none",
+          gap: "0",
+          background: "rgba(255,255,255,0.6)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          border: "1px solid rgba(232,228,220,0.8)",
           borderRadius: "999px",
-          padding: "2px 2px 2px 0",
-          color: "#5C5852",
+          padding: "3px 4px 3px 10px",
+          color: "#2F2C26",
           fontSize: "12px",
           fontWeight: 500,
           cursor: switching ? "wait" : "pointer",
           opacity: switching ? 0.6 : 1,
           whiteSpace: "nowrap" as const,
-          transition: "opacity 0.2s ease",
+          transition: "all 0.2s ease",
+          boxShadow: "0 1px 3px rgba(47,44,38,0.04)",
         }}
       >
         {switching ? (
           <span>Switching...</span>
         ) : (
           <>
-            <span style={{ color: "#8A8580", fontSize: "12px" }}>
+            <span style={{ color: "#2F2C26", fontSize: "12px", fontWeight: 500 }}>
               {(currentBatch?.batchName || "Select Batch").replace(/Batch \d+/, "").trim()}
             </span>
             <span style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "4px",
+              marginLeft: "6px",
               backgroundColor: "#FB651E",
               color: "#FFFFFF",
-              fontSize: "11px",
+              fontSize: "10.5px",
               fontWeight: 700,
               padding: "2px 8px",
               borderRadius: "999px",
-              letterSpacing: "0.02em",
+              letterSpacing: "0.03em",
               position: "relative" as const,
               overflow: "hidden" as const,
             }}>
@@ -100,7 +103,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
                 left: "-100%",
                 width: "200%",
                 height: "100%",
-                background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 60%, transparent 100%)",
+                background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 65%, transparent 100%)",
                 animation: "shimmer 3s ease-in-out infinite",
               }} />
               {(currentBatch?.batchName || "").match(/Batch \d+/)?.[0] || "Batch"}
@@ -117,7 +120,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
             transition: "transform 0.2s",
           }}
         >
-          <path d="M1 1L5 5L9 1" stroke="#FB651E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M1 1L5 5L9 1" stroke="#8A8580" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
 
