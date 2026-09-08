@@ -291,7 +291,7 @@ export default function BookfaceTopNav({
             const menuHref = 'href' in menu ? (menu as { href: string }).href : undefined;
             const isMenuActive = menu.items.some((item) => isPathActive(item.href));
             return (
-              <div key={menu.key} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+              <div key={menu.key} style={{ position: 'relative', display: 'flex', alignItems: 'center' }} onMouseEnter={() => setOpenDropdown(menu.key)} onMouseLeave={() => setOpenDropdown(null)}>
                 {menuHref ? (
                   <Link
                     href={menuHref}
@@ -360,14 +360,14 @@ export default function BookfaceTopNav({
                         position: 'absolute',
                         top: '100%',
                         left: 0,
-                        backgroundColor: '#ffffff',
-                        border: '1px solid #e0e0e0',
-                        borderRadius: '8px',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                        padding: '4px 0',
+                        backgroundColor: '#FFFFFF',
+                        border: '1px solid #E8E4DC',
+                        borderRadius: '10px',
+                        boxShadow: '0 12px 32px rgba(47,44,38,0.10), 0 2px 6px rgba(47,44,38,0.05)',
+                        padding: '5px',
                         minWidth: '200px',
                         zIndex: 200,
-                        marginTop: '8px',
+                        marginTop: '4px',
                         transformOrigin: 'top left',
                       }}
                     >
@@ -383,7 +383,7 @@ export default function BookfaceTopNav({
                             textDecoration: 'none',
                             transition: 'background-color 0.2s',
                           }}
-                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.05)'}
+                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F0EDE6'}
                           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                         >
                           {item.label}
@@ -473,14 +473,14 @@ export default function BookfaceTopNav({
               top: '100%',
               left: 0,
               width: '100%',
-              backgroundColor: '#ffffff',
-              border: '1px solid #e0e0e0',
-              borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              backgroundColor: '#FFFFFF',
+              border: '1px solid #E8E4DC',
+              borderRadius: '10px',
+              boxShadow: '0 12px 32px rgba(47,44,38,0.10), 0 2px 6px rgba(47,44,38,0.05)',
               maxHeight: '400px',
               overflowY: 'auto',
               zIndex: 300,
-              marginTop: '8px',
+              marginTop: '4px',
             }}
           >
             {isSearching ? (
