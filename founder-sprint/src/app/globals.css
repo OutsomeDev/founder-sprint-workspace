@@ -358,3 +358,101 @@ dialog::backdrop {
 }
 
 /* v2 design refresh */
+
+/* ═══════════════════════════════════════════════════════════════
+   BOOKFACE REDESIGN OVERRIDES
+   Based on approved preview: bookface-realistic-preview.html
+   Uses !important to override inline styles in components
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hide Feed title + Community eyebrow ── */
+h1[style*="font-size:28px"][style*="font-weight:700"] { display: none !important; }
+p[style*="text-transform:uppercase"][style*="letter-spacing"] { display: none !important; }
+
+/* ── Post card ── */
+[style*="borderRadius"][style*="backgroundColor: rgb(255, 255, 255)"],
+[style*="border-radius"][style*="background-color:#fff"],
+[style*="background-color: rgb(255, 255, 255)"][style*="border-radius: 16px"] {
+  border: 1px solid #E8E4DC !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s !important;
+}
+[style*="borderRadius"][style*="backgroundColor: rgb(255, 255, 255)"]:hover,
+[style*="background-color: rgb(255, 255, 255)"][style*="border-radius: 16px"]:hover {
+  border-color: #D0C9BC !important;
+}
+
+/* ── Batch labels / pills ── */
+[style*="background-color"][style*="border-radius: 9999px"][style*="font-size: 11px"],
+[style*="background"][style*="border-radius: 9999px"][style*="font-size: 10px"],
+[style*="borderRadius: 9999px"][style*="fontSize: 11px"],
+span[style*="border-radius"][style*="padding"][style*="font-size: 11px"] {
+  background: transparent !important;
+  border: 1px solid #E8E4DC !important;
+  color: #5C5852 !important;
+  font-size: 10.5px !important;
+  padding: 2px 7px !important;
+}
+
+/* ── Action buttons row (upvote, comment, share, bookmark) ── */
+button[style*="gap: 6px"][style*="border-radius"][style*="font-size: 13px"],
+button[style*="gap:6px"][style*="border-radius"][style*="font-size:13px"] {
+  font-size: 13px !important;
+  color: #8A8580 !important;
+  border-radius: 6px !important;
+}
+button[style*="gap: 6px"][style*="border-radius"]:hover,
+button[style*="gap:6px"][style*="border-radius"]:hover {
+  background: #F0EDE6 !important;
+  color: #2F2C26 !important;
+}
+
+/* ── Composer box ── */
+[style*="border-radius"][style*="background"][style*="cursor: text"],
+button[style*="Write a post"] {
+  border: 1px solid #E8E4DC !important;
+  border-radius: 10px !important;
+  background: #FFFFFF !important;
+}
+[style*="border-radius"][style*="background"][style*="cursor: text"]:hover {
+  border-color: #D0C9BC !important;
+}
+
+/* ── Tab bar ── */
+[role="tablist"] button,
+[role="tablist"] a {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+}
+
+/* ── Views counter ── */
+[style*="font-size: 12px"][style*="color: rgb(138"] {
+  font-size: 12px !important;
+  color: #8A8580 !important;
+}
+
+/* ── "Show more" link ── */
+button[style*="color"][style*="font-size: 13px"][style*="cursor: pointer"] {
+  color: #8A8580 !important;
+  font-weight: 500 !important;
+}
+
+/* ── Sidebar Interview Prep card ── */
+[style*="linear-gradient"][style*="border-radius: 10px"] a[style*="background"] {
+  border-radius: 7px !important;
+}
+
+/* ── Search input in header ── */
+input[placeholder*="Search"] {
+  border-radius: 999px !important;
+  border: 1px solid #E8E4DC !important;
+  height: 32px !important;
+  font-size: 13px !important;
+}
+
+/* ── Overall typography tightening ── */
+body {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
