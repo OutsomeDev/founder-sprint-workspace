@@ -60,12 +60,12 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
           display: "flex",
           alignItems: "center",
           gap: "6px",
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          border: "1px solid rgba(255, 255, 255, 0.15)",
-          borderRadius: "var(--radius-sm, 4px)",
+          backgroundColor: "#FFF3EC",
+          border: "1px solid #FB651E",
+          borderRadius: "999px",
           padding: "4px 10px",
-          color: "white",
-          fontSize: "13px",
+          color: "#FB651E",
+          fontSize: "12px", fontWeight: 600,
           cursor: switching ? "wait" : "pointer",
           opacity: switching ? 0.6 : 1,
           whiteSpace: "nowrap" as const,
@@ -83,7 +83,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
             transition: "transform 0.2s",
           }}
         >
-          <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M1 1L5 5L9 1" stroke="#FB651E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
 
@@ -99,7 +99,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
               top: "calc(100% + 4px)",
               left: 0,
               backgroundColor: "var(--color-card-bg, #ffffff)",
-              border: "1px solid var(--color-card-border, #e0e0e0)",
+              border: "1px solid #E8E4DC",
               borderRadius: "8px",
               padding: "4px 0",
               minWidth: "200px",

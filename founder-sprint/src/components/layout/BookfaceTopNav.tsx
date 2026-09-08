@@ -267,7 +267,7 @@ export default function BookfaceTopNav({
                 key={link.key}
                 href={link.href}
                 style={{
-                  color: '#5C5852',
+                  color: '#2F2C26',
                   fontSize: '13px',
                   fontWeight: isActive ? 600 : 400,
                   textDecoration: 'none',
@@ -291,14 +291,14 @@ export default function BookfaceTopNav({
             const menuHref = 'href' in menu ? (menu as { href: string }).href : undefined;
             const isMenuActive = menu.items.some((item) => isPathActive(item.href));
             return (
-              <div key={menu.key} style={{ position: 'relative', display: 'flex', alignItems: 'center' }} onMouseEnter={() => setOpenDropdown(menu.key)} onMouseLeave={() => setOpenDropdown(null)}>
+              <div key={menu.key} style={{ position: 'relative', display: 'flex', alignItems: 'center', paddingBottom: '8px', marginBottom: '-8px' }} onMouseEnter={() => setOpenDropdown(menu.key)} onMouseLeave={() => setOpenDropdown(null)}>
                 {menuHref ? (
                   <Link
                     href={menuHref}
                     style={{
                       background: 'none',
-                      color: '#5C5852',
-                      fontSize: '14px',
+                      color: '#2F2C26',
+                      fontSize: '13px',
                       fontWeight: isMenuActive ? 600 : 400,
                       textDecoration: 'none',
                       padding: '4px 4px 4px 8px',
@@ -315,9 +315,9 @@ export default function BookfaceTopNav({
                     onClick={() => setOpenDropdown(openDropdown === menu.key ? null : menu.key)}
                     style={{
                       background: 'none',
-                      border: 'none',
-                      color: '#5C5852',
-                      fontSize: '14px',
+                      border: '1px solid #E8E4DC',
+                      color: '#2F2C26',
+                      fontSize: '13px',
                       fontWeight: openDropdown === menu.key ? 500 : 400,
                       cursor: 'pointer',
                       padding: '4px 4px 4px 8px',
@@ -334,8 +334,8 @@ export default function BookfaceTopNav({
                   onClick={() => setOpenDropdown(openDropdown === menu.key ? null : menu.key)}
                   style={{
                     background: 'none',
-                    border: 'none',
-                    color: '#5C5852',
+                    border: '1px solid #E8E4DC',
+                    color: '#2F2C26',
                     fontSize: '10px',
                     cursor: 'pointer',
                     padding: '4px 8px 4px 2px',
@@ -367,7 +367,8 @@ export default function BookfaceTopNav({
                         padding: '5px',
                         minWidth: '200px',
                         zIndex: 200,
-                        marginTop: '4px',
+                        marginTop: '0',
+                        paddingTop: '4px',
                         transformOrigin: 'top left',
                       }}
                     >
@@ -378,7 +379,7 @@ export default function BookfaceTopNav({
                           style={{
                             display: 'block',
                             padding: '10px 14px',
-                            fontSize: '14px',
+                            fontSize: '13px',
                             color: '#2F2C26',
                             textDecoration: 'none',
                             transition: 'background-color 0.2s',
@@ -400,8 +401,8 @@ export default function BookfaceTopNav({
             <Link
               href="/admin"
               style={{
-                color: '#5C5852',
-                fontSize: '14px',
+                color: '#2F2C26',
+                fontSize: '13px',
                 fontWeight: isPathActive('/admin') ? 600 : 400,
                 textDecoration: 'none',
                 padding: '4px 8px',
@@ -431,7 +432,7 @@ export default function BookfaceTopNav({
         onSubmit={handleSearchSubmit}
         className="hidden lg:block"
         style={{ 
-          flex: '0 0 300px',
+          flex: '0 0 200px',
           marginLeft: '16px',
           marginRight: '16px',
           position: 'relative',
@@ -456,12 +457,12 @@ export default function BookfaceTopNav({
           style={{
             width: '100%',
             height: '32px',
-            backgroundColor: '#404040',
-            border: 'none',
-            borderRadius: '4px',
+            backgroundColor: '#FFFFFF',
+            border: '1px solid #E8E4DC',
+            borderRadius: '999px',
             padding: '0 12px',
-            color: '#5C5852',
-            fontSize: '14px',
+            color: '#2F2C26',
+            fontSize: '13px',
             outline: 'none',
           }}
         />
@@ -480,14 +481,15 @@ export default function BookfaceTopNav({
               maxHeight: '400px',
               overflowY: 'auto',
               zIndex: 300,
-              marginTop: '4px',
+              marginTop: '0',
+                        paddingTop: '4px',
             }}
           >
             {isSearching ? (
               <div
                 style={{
                   padding: '12px',
-                  fontSize: '14px',
+                  fontSize: '13px',
                   color: '#666666',
                 }}
               >
@@ -560,7 +562,7 @@ export default function BookfaceTopNav({
                           <div style={{ minWidth: 0 }}>
                             <div
                               style={{
-                                fontSize: '14px',
+                                fontSize: '13px',
                                 fontWeight: 700,
                                 color: '#2F2C26',
                                 lineHeight: 1.2,
@@ -624,7 +626,7 @@ export default function BookfaceTopNav({
                             style={{
                               width: '24px',
                               height: '24px',
-                              borderRadius: '4px',
+                              borderRadius: '999px',
                               objectFit: 'cover',
                             }}
                           />
@@ -633,7 +635,7 @@ export default function BookfaceTopNav({
                             style={{
                               width: '24px',
                               height: '24px',
-                              borderRadius: '4px',
+                              borderRadius: '999px',
                               backgroundColor: '#f1eadd',
                               display: 'flex',
                               alignItems: 'center',
@@ -647,7 +649,7 @@ export default function BookfaceTopNav({
                         <div style={{ minWidth: 0 }}>
                           <div
                             style={{
-                              fontSize: '14px',
+                              fontSize: '13px',
                               fontWeight: 700,
                               color: '#2F2C26',
                               lineHeight: 1.2,
@@ -702,7 +704,7 @@ export default function BookfaceTopNav({
                       >
                         <div
                           style={{
-                            fontSize: '14px',
+                            fontSize: '13px',
                             color: '#2F2C26',
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',
@@ -730,7 +732,7 @@ export default function BookfaceTopNav({
                     <div
                       style={{
                         padding: '12px',
-                        fontSize: '14px',
+                        fontSize: '13px',
                         color: '#666666',
                       }}
                     >
@@ -743,7 +745,7 @@ export default function BookfaceTopNav({
                   style={{
                     padding: '10px 12px',
                     borderTop: '1px solid #e0e0e0',
-                    fontSize: '14px',
+                    fontSize: '13px',
                     fontWeight: 600,
                     color: '#2F2C26',
                     cursor: 'pointer',
@@ -864,7 +866,7 @@ export default function BookfaceTopNav({
             style={{
               color: '#8A8580',
               fontSize: '12px',
-              border: 'none',
+              border: '1px solid #E8E4DC',
               background: 'none',
               cursor: 'pointer',
               transition: 'opacity 0.2s',
@@ -882,7 +884,7 @@ export default function BookfaceTopNav({
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           style={{
             background: 'none',
-            border: 'none',
+            border: '1px solid #E8E4DC',
             padding: '4px',
             cursor: 'pointer',
             color: '#5C5852'
@@ -943,11 +945,11 @@ export default function BookfaceTopNav({
                 style={{
                   width: '100%',
                   height: '40px',
-                  backgroundColor: '#404040',
-                  border: 'none',
-                  borderRadius: '4px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E8E4DC',
+                  borderRadius: '999px',
                   padding: '0 12px',
-                  color: '#5C5852',
+                  color: '#2F2C26',
                   fontSize: '16px',
                 }}
               />
@@ -961,7 +963,7 @@ export default function BookfaceTopNav({
                     key={link.href}
                     href={link.href}
                     style={{
-                      color: '#5C5852',
+                      color: '#2F2C26',
                       fontSize: '16px',
                       opacity: isActive ? 1.0 : 0.8,
                       fontWeight: isActive ? 600 : 400,
@@ -982,7 +984,7 @@ export default function BookfaceTopNav({
                 style={{
                   color: '#2F2C26',
                   fontSize: '16px',
-                  border: 'none',
+                  border: '1px solid #E8E4DC',
                   background: 'none',
                   cursor: 'pointer',
                   padding: '8px 0',

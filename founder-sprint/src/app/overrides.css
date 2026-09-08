@@ -79,3 +79,13 @@ div[style*="background-color:#FCFBF8"] {
 button[aria-label="Program menu"], button[aria-label="Community menu"] {
   color: #8A8580 !important;
 }
+
+/* Search bar placeholder */
+input[placeholder="Search Outsome"]::placeholder {
+  color: #8A8580 !important;
+  opacity: 1 !important;
+}
+input[placeholder="Search Outsome"]:focus {
+  border-color: #2F2C26 !important;
+  box-shadow: 0 0 0 3px rgba(47,44,38,0.06) !important;
+}
