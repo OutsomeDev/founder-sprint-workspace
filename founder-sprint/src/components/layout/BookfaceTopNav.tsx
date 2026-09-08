@@ -181,10 +181,11 @@ export default function BookfaceTopNav({
   ];
 
   const batchMenu = {
-    key: "batch",
-    label: "Batch",
-    href: "/schedule",
+    key: "program",
+    label: "Program",
+    href: "/dashboard",
     items: [
+      { href: "/dashboard", label: "Dashboard" },
       { href: "/schedule", label: "Schedule" },
       { href: "/assignments", label: "Assignments" },
       { href: "/office-hours", label: "Office Hours" },
@@ -199,8 +200,7 @@ export default function BookfaceTopNav({
     items: [
       { href: "/founders", label: "Founders" },
       { href: "/companies", label: "Companies" },
-      { href: "/messages", label: "Messages" },
-    ],
+          ],
   };
 
   const desktopMenus = [batchMenu, communityMenu];
@@ -216,8 +216,11 @@ export default function BookfaceTopNav({
   return (
     <nav 
       style={{
-        height: '48px',
-        backgroundColor: '#2F2C26',
+        height: '44px',
+        backgroundColor: 'rgba(255,255,255,0.92)',
+        backdropFilter: 'saturate(180%) blur(12px)',
+        WebkitBackdropFilter: 'saturate(180%) blur(12px)',
+        borderBottom: '1px solid #E8E4DC',
         padding: '0 16px',
         display: 'flex',
         justifyContent: 'space-between',
@@ -239,7 +242,7 @@ export default function BookfaceTopNav({
           }}
         >
           <Image
-            src="/images/Outsome-Symbol_White_Moving.svg"
+            src="/images/Outsome-Symbol_Black.svg"
             alt="Outsome"
             width={32}
             height={32}
@@ -265,8 +268,8 @@ export default function BookfaceTopNav({
                 key={link.key}
                 href={link.href}
                 style={{
-                  color: 'white',
-                  fontSize: '14px',
+                  color: '#5C5852',
+                  fontSize: '13px',
                   fontWeight: isActive ? 600 : 400,
                   textDecoration: 'none',
                   padding: '4px 8px',
@@ -832,7 +835,7 @@ export default function BookfaceTopNav({
                 height: '32px',
                 borderRadius: '50%',
                 objectFit: 'cover',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
+                border: '2px solid #E8E4DC',
               }}
             />
           ) : (
@@ -846,9 +849,9 @@ export default function BookfaceTopNav({
                 justifyContent: 'center',
                 fontSize: '12px',
                 fontWeight: 500,
-                backgroundColor: '#404040',
-                color: 'white',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
+                backgroundColor: '#E8E4DC',
+                color: '#2F2C26',
+                border: '2px solid #E8E4DC',
               }}
             >
               {getInitials(name)}
@@ -860,8 +863,7 @@ export default function BookfaceTopNav({
           <button
             type="submit"
             style={{
-              color: 'white',
-              opacity: 0.7,
+              color: '#8A8580',
               fontSize: '12px',
               border: 'none',
               background: 'none',
@@ -892,7 +894,7 @@ export default function BookfaceTopNav({
             alt="Menu"
             width={24}
             height={24}
-            style={{ filter: 'brightness(0) invert(1)' }}
+            style={{ filter: 'none' }}
           />
         </button>
       </div>
@@ -917,8 +919,8 @@ export default function BookfaceTopNav({
             top: '48px',
             left: 0,
             width: '100%',
-            backgroundColor: '#2F2C26',
-            borderTop: '1px solid #404040',
+            backgroundColor: '#FFFFFF',
+            borderTop: '1px solid #E8E4DC',
             padding: '16px',
             display: 'flex',
             flexDirection: 'column',
@@ -928,7 +930,7 @@ export default function BookfaceTopNav({
             animation: 'slideDown 0.2s ease-out'
           }}>
             {batches.length > 1 && (
-              <div style={{ padding: '0 0 8px 0', borderBottom: '1px solid #404040' }}>
+              <div style={{ padding: '0 0 8px 0', borderBottom: '1px solid #F0EDE6' }}>
                 <BatchSwitcher batches={batches} currentBatchId={currentBatchId} />
               </div>
             )}
@@ -966,7 +968,7 @@ export default function BookfaceTopNav({
                       fontWeight: isActive ? 600 : 400,
                       textDecoration: 'none',
                       padding: '8px 0',
-                      borderBottom: '1px solid #404040'
+                      borderBottom: '1px solid #F0EDE6'
                     }}
                   >
                     {link.label}
@@ -979,7 +981,7 @@ export default function BookfaceTopNav({
               <button
                 type="submit"
                 style={{
-                  color: 'white',
+                  color: '#2F2C26',
                   fontSize: '16px',
                   border: 'none',
                   background: 'none',
