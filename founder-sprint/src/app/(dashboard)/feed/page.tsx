@@ -34,10 +34,27 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
   return (
     <DashboardShell
       rightSidebar={
-        <PeopleToFollow
+        <>
+          <div style={{
+            border: '1px solid #E8E4DC',
+            borderRadius: '10px',
+            padding: '16px 18px',
+            background: 'linear-gradient(180deg, #FFFFFF, #FAF9F6)',
+            marginBottom: '16px',
+          }}>
+            <div style={{ fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FB651E', fontWeight: 600, marginBottom: '6px' }}>New</div>
+            <div style={{ fontSize: '15px', fontWeight: 600, letterSpacing: '-0.01em', marginBottom: '4px' }}>YC Interview Prep</div>
+            <div style={{ fontSize: '12.5px', color: '#5C5852', marginBottom: '12px', lineHeight: '1.5' }}>10 minutes with a panel of YC partners. Built from real interview transcripts.</div>
+            <a href="https://interview.outsome.co" target="_blank" rel="noopener noreferrer" style={{
+              display: 'inline-flex', height: '32px', alignItems: 'center', padding: '0 12px',
+              borderRadius: '7px', background: '#2F2C26', color: '#fff', fontSize: '13px', fontWeight: 500, textDecoration: 'none',
+            }}>Start a mock interview &rarr;</a>
+          </div>
+          <PeopleToFollow
           suggestions={followSuggestions}
           currentUserId={user.id}
         />
+        </>
       }
     >
       <FeedView
