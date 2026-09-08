@@ -23,9 +23,7 @@ button[aria-label="Remove upvote"], button[aria-label="Upvote"] {
   padding: 4px 8px !important;
   border-radius: 6px !important;
 }
-button[aria-label="Remove upvote"] {
-  color: #1A8D5F !important;
-}
+button[aria-label="Remove upvote"] { color: #1A8D5F !important; }
 button[aria-label="Remove upvote"]:hover, button[aria-label="Upvote"]:hover {
   background: #F0EDE6 !important;
 }
@@ -40,7 +38,7 @@ button[aria-label="View comments"]:hover, button[aria-label="Share post"]:hover,
   color: #2F2C26 !important;
 }
 
-/* Batch pills */
+/* Batch pills: outline only */
 span[style*="border-radius: 9999px"][style*="padding"],
 span[style*="borderRadius:9999px"][style*="padding"] {
   background: transparent !important;
@@ -57,13 +55,13 @@ div[style*="white-space: pre-line"], div[style*="white-space:pre-line"] {
 }
 
 /* Show more link */
-button[style*="color"][style*="cursor: pointer"][style*="font-size: 13px"] {
+button[style*="cursor: pointer"][style*="font-size: 13px"] {
   color: #8A8580 !important;
   font-weight: 500 !important;
 }
 
 /* Views count */
-span[style*="margin-left: auto"][style*="font-size"],
+span[style*="margin-left: auto"][style*="font-size: 12px"],
 span[style*="marginLeft:auto"][style*="fontSize"] {
   color: #8A8580 !important;
   font-size: 12px !important;
@@ -71,15 +69,13 @@ span[style*="marginLeft:auto"][style*="fontSize"] {
 
 /* People to Follow sidebar card */
 div[style*="background-color: rgb(252, 251, 248)"],
-div[style*="background-color:#FCFBF8"],
-div[style*="backgroundColor:rgb(252, 251, 248)"] {
+div[style*="background-color:#FCFBF8"] {
   background: #FFFFFF !important;
   border: 1px solid #E8E4DC !important;
   border-radius: 10px !important;
 }
 
-/* Nav dropdown menus: white text -> fix for dark items */
+/* Nav dropdown triggers: muted color */
 button[aria-label="Program menu"], button[aria-label="Community menu"] {
   color: #8A8580 !important;
 }
-
