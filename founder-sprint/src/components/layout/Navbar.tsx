@@ -56,21 +56,9 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
 
   const primaryLinks = [
     { href: "/feed", label: "Feed" },
-    { href: "/dashboard", label: "Dashboard" },
   ];
 
   const desktopMenus = [
-    {
-      key: "batch",
-      label: "Batch",
-      href: "/schedule",
-      items: [
-        { href: "/schedule", label: "Schedule" },
-        { href: "/assignments", label: "Assignments" },
-        { href: "/office-hours", label: "Office Hours" },
-        { href: "/questions", label: "Questions" },
-      ],
-    },
     {
       key: "community",
       label: "Community",
@@ -78,7 +66,18 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
       items: [
         { href: "/founders", label: "Founders" },
         { href: "/companies", label: "Companies" },
-        { href: "/messages", label: "Messages" },
+      ],
+    },
+    {
+      key: "program",
+      label: "Program",
+      href: "/dashboard",
+      items: [
+        { href: "/dashboard", label: "Dashboard" },
+        { href: "/schedule", label: "Schedule" },
+        { href: "/office-hours", label: "Office Hours" },
+        { href: "/assignments", label: "Assignments" },
+        { href: "/questions", label: "Questions" },
       ],
     },
   ];
@@ -93,8 +92,11 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
 
   return (
     <nav style={{
-      height: '48px',
-      backgroundColor: '#2F2C26',
+      height: '44px',
+      backgroundColor: 'rgba(255,255,255,0.92)',
+      backdropFilter: 'saturate(180%) blur(12px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(12px)',
+      borderBottom: '1px solid #E8E4DC',
       padding: '0 16px',
       display: 'flex',
       justifyContent: 'space-between',
@@ -114,11 +116,11 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
         }}
       >
         <Image
-          src="/images/Outsome-Symbol_White_Moving.svg"
+          src="/images/Outsome-Symbol_Black.svg"
           alt="Outsome"
-          width={32}
-          height={32}
-          style={{ width: 32, height: 32 }}
+          width={24}
+          height={24}
+          style={{ width: 24, height: 24 }}
           priority
         />
       </Link>
@@ -136,16 +138,16 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
               key={link.href}
               href={link.href}
               style={{
-                color: 'white',
+                color: '#5C5852',
                 fontSize: '14px',
-                opacity: isActive ? 1.0 : 0.9,
-                fontWeight: isActive ? 500 : 400,
+                opacity: 1,
+                fontWeight: isActive ? 600 : 500,
                 textDecoration: 'none',
                 transition: 'opacity 0.2s',
                 whiteSpace: 'nowrap',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.opacity = '1.0'}
-              onMouseLeave={(e) => e.currentTarget.style.opacity = isActive ? '1.0' : '0.9'}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#2F2C26'}
+              onMouseLeave={(e) => e.currentTarget.style.color = isActive ? '#2F2C26' : '#5C5852'}
             >
               {link.label}
             </Link>
@@ -158,17 +160,17 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
               <Link
                 href={menu.href}
                 style={{
-                  color: 'white',
+                  color: '#5C5852',
                   fontSize: '14px',
-                  opacity: isMenuActive ? 1.0 : 0.9,
-                  fontWeight: isMenuActive ? 500 : 400,
+                  opacity: 1,
+                  fontWeight: isMenuActive ? 600 : 500,
                   textDecoration: 'none',
                   transition: 'opacity 0.2s',
                   whiteSpace: 'nowrap',
                   padding: '4px 4px 4px 0',
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = '1.0'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = isMenuActive ? '1.0' : '0.9'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#2F2C26'}
+                onMouseLeave={(e) => e.currentTarget.style.color = isMenuActive ? '#2F2C26' : '#5C5852'}
               >
                 {menu.label}
               </Link>
@@ -178,7 +180,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: 'white',
+                  color: '#5C5852',
                   fontSize: '10px',
                   cursor: 'pointer',
                   padding: '4px 0 4px 2px',
@@ -230,7 +232,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
           <Link
             href="/admin"
             style={{
-              color: 'white',
+              color: '#5C5852',
               fontSize: '14px',
               opacity: isPathActive('/admin') ? 1.0 : 0.9,
               fontWeight: isPathActive('/admin') ? 500 : 400,
@@ -238,7 +240,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
               transition: 'opacity 0.2s',
               whiteSpace: 'nowrap',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '1.0'}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#2F2C26'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = isPathActive('/admin') ? '1.0' : '0.9'}
           >
             Admin
@@ -275,7 +277,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
                 height: '32px',
                 borderRadius: '50%',
                 objectFit: 'cover',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
+                border: '2px solid #E8E4DC',
               }}
             />
           ) : (
@@ -289,9 +291,9 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
                 justifyContent: 'center',
                 fontSize: '12px',
                 fontWeight: 500,
-                backgroundColor: '#404040',
-                color: 'white',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
+                backgroundColor: '#E8E4DC',
+                color: '#5C5852',
+                border: '2px solid #E8E4DC',
               }}
             >
               {getInitials(name)}
@@ -303,7 +305,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
           <button
             type="submit"
             style={{
-              color: 'white',
+              color: '#5C5852',
               opacity: 0.7,
               fontSize: '12px',
               border: 'none',
@@ -312,7 +314,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
               transition: 'opacity 0.2s',
               padding: 0,
             }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '1.0'}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#2F2C26'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}
           >
             Sign out
@@ -338,7 +340,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
             alt="Menu"
             width={24}
             height={24}
-            style={{ filter: 'brightness(0) invert(1)' }}
+            style={{ filter: 'none' }}
           />
         </button>
       </div>
@@ -363,8 +365,8 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
             top: '48px',
             left: 0,
             width: '100%',
-            backgroundColor: '#2F2C26',
-            borderTop: '1px solid #404040',
+            backgroundColor: '#FFFFFF',
+            borderTop: '1px solid #E8E4DC',
             padding: '16px',
             display: 'flex',
             flexDirection: 'column',
@@ -374,7 +376,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
             animation: 'slideDown 0.2s ease-out'
           }}>
             {batches.length > 1 && (
-              <div style={{ padding: '0 0 8px 0', borderBottom: '1px solid #404040' }}>
+              <div style={{ padding: '0 0 8px 0', borderBottom: '1px solid #F0EDE6' }}>
                 <BatchSwitcher batches={batches} currentBatchId={currentBatchId} />
               </div>
             )}
@@ -387,13 +389,13 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
                     key={link.href}
                     href={link.href}
                     style={{
-                      color: 'white',
+                      color: '#5C5852',
                       fontSize: '16px',
                       opacity: isActive ? 1.0 : 0.8,
                       fontWeight: isActive ? 600 : 400,
                       textDecoration: 'none',
                       padding: '8px 0',
-                      borderBottom: '1px solid #404040'
+                      borderBottom: '1px solid #F0EDE6'
                     }}
                   >
                     {link.label}
@@ -406,7 +408,7 @@ export default function Navbar({ user, isAdmin = false, batches = [], currentBat
               <button
                 type="submit"
                 style={{
-                  color: 'white',
+                  color: '#5C5852',
                   fontSize: '16px',
                   border: 'none',
                   background: 'none',
