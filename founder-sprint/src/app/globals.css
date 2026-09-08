@@ -34,8 +34,8 @@
 
 @theme inline {
   /* Bookface Design System Colors */
-  --color-background: #fefaf3;
-  --color-background-secondary: #f1eadd;
+  --color-background: #FAF9F6;
+  --color-background-secondary: #F0EDE6;
   --color-foreground: #2F2C26;
   --color-foreground-secondary: #666666;
   --color-foreground-muted: #999999;
@@ -43,10 +43,10 @@
   --color-accent: #1A1A1A;
   --color-accent-hover: #333333;
   --color-card-bg: #FFFFFF;
-  --color-card-border: #e0e0e0;
+  --color-card-border: #E8E4DC;
   --color-card-hover: #f5f5f5;
-  --color-input-bg: #2f2c250f;
-  --color-input-border: #2f2c251f;
+  --color-input-bg: #2f2c250a;
+  --color-input-border: #E8E4DC;
   --color-glass-surface: #FAF8F599;
   --color-glass-border: #fff6;
   --color-success: #2E7D32;
@@ -62,11 +62,11 @@
   --color-primary: #1A1A1A;
   --color-primary-hover: #333333;
   --color-primary-light: #4A4A4A;
-  --color-header-bg: #2F2C26;
-  --color-header-text: #ffffff;
+  --color-header-bg: #FFFFFF;
+  --color-header-text: #2F2C26;
   --color-link-blue: #1A1A1A;
-  --color-border-light: #f1eadd;
-  --color-tag-gray: #f0f2f5;
+  --color-border-light: #F0EDE6;
+  --color-tag-gray: #F0EDE6;
   --color-tag-text: #555555;
   --color-tag-border: #e1e4e8;
 
@@ -93,16 +93,16 @@
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 6px;
-  --radius-lg: 9px;
+  --radius-lg: 10px;
   --radius-full: 9999px;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 2px 8px rgba(47, 44, 38, 0.06);
+  --shadow-lg: 0 8px 24px rgba(47, 44, 38, 0.08);
 
   /* Layout */
-  --navbar-height: 48px;
+  --navbar-height: 44px;
   --button-height: 48px;
   --input-height: 48px;
 
@@ -110,18 +110,18 @@
   --bf-primary: #555AB9;
   --bf-primary-light: #6b70c7;
   --bf-primary-dark: #454a9a;
-  --bf-header-bg: #2F2C26;
-  --bf-header-text: #ffffff;
-  --bf-page-bg: #fefaf3;
+  --bf-header-bg: #FFFFFF;
+  --bf-header-text: #2F2C26;
+  --bf-page-bg: #FAF9F6;
   --bf-card-bg: #ffffff;
   --bf-text-primary: #2F2C26;
   --bf-text-secondary: #666666;
   --bf-text-muted: #999999;
   --bf-link-blue: #555AB9;
   --bf-link-hover: #454a9a;
-  --bf-border-color: #e0e0e0;
-  --bf-border-light: #f1eadd;
-  --bf-tag-gray: #f1eadd;
+  --bf-border-color: #E8E4DC;
+  --bf-border-light: #F0EDE6;
+  --bf-tag-gray: #F0EDE6;
   --bf-tag-text: #555555;
   --bf-success: #a9ee81;
   --bf-error: #f5aaaa;
@@ -149,12 +149,12 @@
 
   --bf-radius-sm: 4px;
   --bf-radius-md: 6px;
-  --bf-radius-lg: 9px;
+  --bf-radius-lg: 10px;
   --bf-radius-full: 9999px;
 
   --bf-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --bf-shadow-md: 0 2px 4px rgba(0,0,0,0.1);
-  --bf-shadow-lg: 0 4px 12px rgba(0,0,0,0.15);
+  --bf-shadow-md: 0 2px 8px rgba(47,44,38,0.06);
+  --bf-shadow-lg: 0 8px 24px rgba(47,44,38,0.08);
 
   --bf-button-height: 48px;
   --bf-button-height-small: 42px;
