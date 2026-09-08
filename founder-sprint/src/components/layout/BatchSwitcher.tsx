@@ -65,7 +65,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
           WebkitBackdropFilter: "blur(8px)",
           border: "1px solid rgba(232,228,220,0.8)",
           borderRadius: "999px",
-          padding: "3px 4px 3px 10px",
+          padding: "5px 12px 5px 14px",
           color: "#2F2C26",
           fontSize: "12px",
           fontWeight: 500,
@@ -86,7 +86,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
             <span style={{
               display: "inline-flex",
               alignItems: "center",
-              marginLeft: "6px",
+              marginLeft: "8px",
               backgroundColor: "#FB651E",
               color: "#FFFFFF",
               fontSize: "10.5px",
