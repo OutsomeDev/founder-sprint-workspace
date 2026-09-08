@@ -103,3 +103,13 @@ button[style*="height:42px"][style*="inline-flex"] {
   font-size: 12px !important;
   padding: 0 10px !important;
 }
+
+/* Remove border around dropdown arrow buttons */
+button[aria-label="Program menu"],
+button[aria-label="Community menu"] {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 4px !important;
+}
