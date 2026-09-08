@@ -358,16 +358,3 @@ dialog::backdrop {
 }
 
 /* v2 design refresh */
-
-
-/* ── Bookface Redesign Overrides ── */
-
-/* Hide Feed page title */
-h1[style*="BDO Grotesk"][style*="28px"] {
-  display: none !important;
-}
-
-/* Hide "Community" eyebrow above feed title */
-p[style*="letter-spacing"][style*="uppercase"] {
-  display: none !important;
-}
