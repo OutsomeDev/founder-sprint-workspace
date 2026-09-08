@@ -46,16 +46,10 @@ export interface PostCardProps {
   variant?: PostCardVariant;
 }
 
-function HeartIcon({ filled = false, size = 22 }: { filled?: boolean; size?: number }) {
+function UpvoteIcon({ filled = false, size = 16 }: { filled?: boolean; size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} aria-hidden="true">
-      <path
-        d="M20.8 4.6c-2-2-5.2-1.9-7.1.2L12 6.5l-1.7-1.7C8.4 2.7 5.2 2.6 3.2 4.6c-2.2 2.2-2.1 5.8.2 8l8.6 8.1 8.6-8.1c2.3-2.2 2.4-5.8.2-8Z"
-        stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width={size} height={size} viewBox="0 0 16 16" fill={filled ? 'currentColor' : 'none'} stroke={filled ? 'none' : 'currentColor'} strokeWidth={filled ? 0 : 1.2} aria-hidden="true">
+      <path d="M8 2.5c.3 0 .6.15.78.4l5.5 8.5c.2.3.22.67.06.99A.93.93 0 0 1 13.5 13h-11a.93.93 0 0 1-.84-.61 1.01 1.01 0 0 1 .06-.99l5.5-8.5c.18-.25.48-.4.78-.4z" />
     </svg>
   );
 }
@@ -321,7 +315,7 @@ function getStyles(variant: PostCardVariant) {
       transition: 'color 0.16s ease, transform 0.16s ease, opacity 0.16s ease',
     },
     actionBtnActive: {
-      color: '#2F2C26',
+      color: '#1A8D5F',
       backgroundColor: 'transparent',
       fontWeight: 600,
     },
@@ -580,9 +574,9 @@ export const PostCard: React.FC<PostCardProps> = ({
             onLike?.();
           }}
           disabled={!onLike}
-          aria-label={isLiked ? 'Unlike post' : 'Like post'}
+          aria-label={isLiked ? 'Remove upvote' : 'Upvote'}
         >
-          <HeartIcon filled={isLiked} />
+          <UpvoteIcon filled={isLiked} />
           {likes > 0 && likes}
         </button>
 
