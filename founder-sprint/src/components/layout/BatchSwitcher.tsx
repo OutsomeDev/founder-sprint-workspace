@@ -111,11 +111,12 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
           </>
         )}
         <svg
-          style={{ marginLeft: "10px" }} width="10"
+          width="10"
           height="6"
           viewBox="0 0 10 6"
           fill="none"
           style={{
+            marginLeft: "10px",
             transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
             transition: "transform 0.2s",
           }}
