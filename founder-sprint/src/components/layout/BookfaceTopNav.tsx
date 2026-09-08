@@ -297,7 +297,7 @@ export default function BookfaceTopNav({
                     href={menuHref}
                     style={{
                       background: 'none',
-                      color: 'white',
+                      color: '#5C5852',
                       fontSize: '14px',
                       fontWeight: isMenuActive ? 600 : 400,
                       textDecoration: 'none',
@@ -316,7 +316,7 @@ export default function BookfaceTopNav({
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: 'white',
+                      color: '#5C5852',
                       fontSize: '14px',
                       fontWeight: openDropdown === menu.key ? 500 : 400,
                       cursor: 'pointer',
@@ -335,7 +335,7 @@ export default function BookfaceTopNav({
                   style={{
                     background: 'none',
                     border: 'none',
-                    color: 'white',
+                    color: '#5C5852',
                     fontSize: '10px',
                     cursor: 'pointer',
                     padding: '4px 8px 4px 2px',
@@ -400,7 +400,7 @@ export default function BookfaceTopNav({
             <Link
               href="/admin"
               style={{
-                color: 'white',
+                color: '#5C5852',
                 fontSize: '14px',
                 fontWeight: isPathActive('/admin') ? 600 : 400,
                 textDecoration: 'none',
@@ -460,7 +460,7 @@ export default function BookfaceTopNav({
             border: 'none',
             borderRadius: '4px',
             padding: '0 12px',
-            color: 'white',
+            color: '#5C5852',
             fontSize: '14px',
             outline: 'none',
           }}
@@ -885,7 +885,7 @@ export default function BookfaceTopNav({
             border: 'none',
             padding: '4px',
             cursor: 'pointer',
-            color: 'white'
+            color: '#5C5852'
           }}
         >
           <Image
@@ -947,7 +947,7 @@ export default function BookfaceTopNav({
                   border: 'none',
                   borderRadius: '4px',
                   padding: '0 12px',
-                  color: 'white',
+                  color: '#5C5852',
                   fontSize: '16px',
                 }}
               />
@@ -961,7 +961,7 @@ export default function BookfaceTopNav({
                     key={link.href}
                     href={link.href}
                     style={{
-                      color: 'white',
+                      color: '#5C5852',
                       fontSize: '16px',
                       opacity: isActive ? 1.0 : 0.8,
                       fontWeight: isActive ? 600 : 400,
