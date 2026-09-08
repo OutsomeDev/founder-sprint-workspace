@@ -233,6 +233,7 @@ export default function BookfaceTopNav({
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1 }}>
         <Link
           href="/feed"
+          className="nav-logo"
           style={{
             textDecoration: 'none',
             flexShrink: 0,

@@ -75,10 +75,6 @@ div[style*="background-color:#FCFBF8"] {
   border-radius: 10px !important;
 }
 
-/* Nav dropdown triggers: muted color */
-button[aria-label="Program menu"], button[aria-label="Community menu"] {
-  color: #8A8580 !important;
-}
 
 /* Search bar placeholder */
 input[placeholder="Search Outsome"]::placeholder {
@@ -104,24 +100,22 @@ button[style*="height:42px"][style*="inline-flex"] {
   padding: 0 10px !important;
 }
 
-/* Remove border around dropdown arrow buttons */
-button[aria-label="Program menu"],
-button[aria-label="Community menu"] {
+
+/* Logo hover animation (matching UStrack style) */
+.nav-logo img {
+  transition: transform 0.25s ease !important;
+}
+.nav-logo:hover img {
+  transform: rotate(-8deg) !important;
+}
+
+
+/* Nav dropdown arrow buttons - remove border, fix color */
+nav button[style*="background:none"],
+nav button[style*="background: none"] {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
   background: transparent !important;
-  padding: 4px !important;
-}
-
-/* Logo hover animation (matching UStrack style) */
-nav a[style*="flex-shrink: 0"] img,
-nav a[style*="flexShrink: 0"] img,
-nav a[style*="flex-shrink:0"] img {
-  transition: transform 0.25s ease !important;
-}
-nav a[style*="flex-shrink: 0"]:hover img,
-nav a[style*="flexShrink: 0"]:hover img,
-nav a[style*="flex-shrink:0"]:hover img {
-  transform: rotate(-8deg) !important;
+  color: #8A8580 !important;
 }
