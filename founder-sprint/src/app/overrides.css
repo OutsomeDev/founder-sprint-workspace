@@ -113,3 +113,15 @@ button[aria-label="Community menu"] {
   background: transparent !important;
   padding: 4px !important;
 }
+
+/* Logo hover animation (matching UStrack style) */
+nav a[style*="flex-shrink: 0"] img,
+nav a[style*="flexShrink: 0"] img,
+nav a[style*="flex-shrink:0"] img {
+  transition: transform 0.25s ease !important;
+}
+nav a[style*="flex-shrink: 0"]:hover img,
+nav a[style*="flexShrink: 0"]:hover img,
+nav a[style*="flex-shrink:0"]:hover img {
+  transform: rotate(-8deg) !important;
+}
