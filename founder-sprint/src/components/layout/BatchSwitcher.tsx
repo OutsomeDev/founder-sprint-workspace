@@ -60,19 +60,53 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
           display: "flex",
           alignItems: "center",
           gap: "6px",
-          backgroundColor: "#FFF3EC",
-          border: "1px solid #FB651E",
+          backgroundColor: "transparent",
+          border: "none",
           borderRadius: "999px",
-          padding: "4px 10px",
-          color: "#FB651E",
-          fontSize: "12px", fontWeight: 600,
+          padding: "2px 2px 2px 0",
+          color: "#5C5852",
+          fontSize: "12px",
+          fontWeight: 500,
           cursor: switching ? "wait" : "pointer",
           opacity: switching ? 0.6 : 1,
           whiteSpace: "nowrap" as const,
           transition: "opacity 0.2s ease",
         }}
       >
-        <span>{switching ? "Switching..." : currentBatch?.batchName || "Select Batch"}</span>
+        {switching ? (
+          <span>Switching...</span>
+        ) : (
+          <>
+            <span style={{ color: "#8A8580", fontSize: "12px" }}>
+              {(currentBatch?.batchName || "Select Batch").replace(/Batch \d+/, "").trim()}
+            </span>
+            <span style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "4px",
+              backgroundColor: "#FB651E",
+              color: "#FFFFFF",
+              fontSize: "11px",
+              fontWeight: 700,
+              padding: "2px 8px",
+              borderRadius: "999px",
+              letterSpacing: "0.02em",
+              position: "relative" as const,
+              overflow: "hidden" as const,
+            }}>
+              <span style={{
+                position: "absolute" as const,
+                top: 0,
+                left: "-100%",
+                width: "200%",
+                height: "100%",
+                background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 60%, transparent 100%)",
+                animation: "shimmer 3s ease-in-out infinite",
+              }} />
+              {(currentBatch?.batchName || "").match(/Batch \d+/)?.[0] || "Batch"}
+            </span>
+          </>
+        )}
         <svg
           width="10"
           height="6"

@@ -89,3 +89,9 @@ input[placeholder="Search Outsome"]:focus {
   border-color: #2F2C26 !important;
   box-shadow: 0 0 0 3px rgba(47,44,38,0.06) !important;
 }
+
+/* Batch badge shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
