@@ -177,7 +177,6 @@ export default function BookfaceTopNav({
 
   const primaryLinks = [
     { key: "feed", label: "Feed", href: "/feed" },
-    { key: "dashboard", label: "Dashboard", href: "/dashboard" },
   ];
 
   const batchMenu = {
