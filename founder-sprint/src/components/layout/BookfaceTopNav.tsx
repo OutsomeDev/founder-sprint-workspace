@@ -316,9 +316,9 @@ export default function BookfaceTopNav({
                     onClick={() => setOpenDropdown(openDropdown === menu.key ? null : menu.key)}
                     style={{
                       background: 'none',
-                      border: '1px solid #E8E4DC',
-                      color: '#2F2C26',
-                      fontSize: '13px',
+                      border: 'none',
+                      color: '#8A8580',
+                      fontSize: '10px',
                       fontWeight: openDropdown === menu.key ? 500 : 400,
                       cursor: 'pointer',
                       padding: '4px 4px 4px 8px',
@@ -335,11 +335,11 @@ export default function BookfaceTopNav({
                   onClick={() => setOpenDropdown(openDropdown === menu.key ? null : menu.key)}
                   style={{
                     background: 'none',
-                    border: '1px solid #E8E4DC',
-                    color: '#2F2C26',
+                    border: 'none',
+                    color: '#8A8580',
                     fontSize: '10px',
                     cursor: 'pointer',
-                    padding: '4px 8px 4px 2px',
+                    padding: '4px 4px 4px 2px',
                     opacity: 0.9,
                     transition: 'opacity 0.2s',
                   }}
