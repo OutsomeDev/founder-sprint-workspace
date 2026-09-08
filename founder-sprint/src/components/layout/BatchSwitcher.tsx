@@ -65,7 +65,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
           WebkitBackdropFilter: "blur(8px)",
           border: "1px solid rgba(232,228,220,0.8)",
           borderRadius: "999px",
-          padding: "5px 12px 5px 14px",
+          padding: "5px 14px 5px 14px",
           color: "#2F2C26",
           fontSize: "12px",
           fontWeight: 500,
@@ -111,7 +111,7 @@ export default function BatchSwitcher({ batches, currentBatchId }: BatchSwitcher
           </>
         )}
         <svg
-          width="10"
+          style={{ marginLeft: "6px" }} width="10"
           height="6"
           viewBox="0 0 10 6"
           fill="none"

@@ -95,3 +95,16 @@ input[placeholder="Search Outsome"]:focus {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
+
+
+/* Compact Show Archived area */
+.flex.items-start.justify-between.gap-4 {
+  margin-bottom: 4px !important;
+  min-height: 0 !important;
+}
+.flex.items-start.justify-between.gap-4 button[style*="height:42px"],
+.flex.items-start.justify-between.gap-4 button[style*="height: 42px"] {
+  height: 28px !important;
+  font-size: 12px !important;
+  padding: 0 10px !important;
+}
