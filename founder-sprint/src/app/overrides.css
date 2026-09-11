@@ -119,3 +119,16 @@ nav button[style*="background: none"] {
   background: transparent !important;
   color: #8A8580 !important;
 }
+
+
+/* Admin user table: single row, no wrapping */
+table.w-full td {
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  padding: 8px 10px !important;
+}
+table.w-full th {
+  white-space: nowrap !important;
+  font-size: 12px !important;
+  padding: 8px 10px !important;
+}
