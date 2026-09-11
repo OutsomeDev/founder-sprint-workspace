@@ -132,3 +132,47 @@ table.w-full th {
   font-size: 12px !important;
   padding: 8px 10px !important;
 }
+
+
+/* Admin user table: compact single-row layout */
+table.w-full td,
+table.w-full th {
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  padding: 8px 8px !important;
+  vertical-align: middle !important;
+}
+table.w-full td:last-child {
+  white-space: normal !important;
+}
+/* Actions column: horizontal layout */
+table.w-full td .flex.flex-col {
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  align-items: center !important;
+}
+/* Compact action buttons */
+table.w-full td button {
+  font-size: 11px !important;
+  padding: 2px 8px !important;
+  height: 26px !important;
+}
+table.w-full td select {
+  font-size: 12px !important;
+  height: 28px !important;
+  min-width: 100px !important;
+}
+/* Compact checkboxes row */
+table.w-full td .flex.items-center.gap-3 {
+  gap: 4px !important;
+  flex-wrap: nowrap !important;
+}
+table.w-full td .text-xs {
+  font-size: 10px !important;
+}
+/* Batch badge compact */
+table.w-full td span[style*="border-radius"][style*="padding"] {
+  font-size: 10px !important;
+  padding: 1px 6px !important;
+}
